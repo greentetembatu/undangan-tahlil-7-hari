@@ -1,17 +1,15 @@
 
 
-        // --- Guest Name from URL Parameter ---
-    const guestNameDisplay = document.getElementById('guestNameDisplay');
-    if (guestNameDisplay) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestName = urlParams.get('to');
-        if (guestName) {
-            guestNameDisplay.textContent = decodeURIComponent(guestName);
-        } else {
-            // Opsional: Jika tidak ada parameter 'to', tampilkan teks default
-            guestNameDisplay.textContent = "Tamu Undangan Terhormat";
-        }
-    };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  let namaTamu = urlParams.get('to');
+
+  if (namaTamu) {
+    // Mengubah teks menjadi format Title Case (Huruf Kapital di Awal Kata)
+    namaTamu = namaTamu.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+    
+    document.getElementById('guesNameDisplay').innerText = namaTamu;
+  }
 
 
 
@@ -75,4 +73,5 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(() => {
     splashScreen.classList.add('loaded');
   }, 100);
+
 });
