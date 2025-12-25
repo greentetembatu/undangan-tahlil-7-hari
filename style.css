@@ -284,6 +284,12 @@ body {
 
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
+.gambar-depan{
+  display: none;
+}
+.gambar-depan img{
+  display: none;
+}
 .section-satu-container{
   text-align: center;
   max-width: 800px;
